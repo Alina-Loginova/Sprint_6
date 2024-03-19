@@ -1,9 +1,12 @@
+import allure
 import pytest
 from locators.main_page_locators import MainPageLocators
 from data import Answers, Urls
 
+@allure.story('Тест: просмотр текста ответов из списка "Вопросы о важном"')
 class TestMainPage:
 
+    @allure.title('Тест: сверка текста ответа из списка "Вопросы о важном"')
     @pytest.mark.parametrize(
         "q_num,expected_result",
         [
@@ -23,10 +26,10 @@ class TestMainPage:
         main_page.get_url(Urls.MAIN_URL)
 
         # нажали на кнопку куки
-        main_page.click_on_element(MainPageLocators.COOKIE_BUTTON)
+        main_page.click_cookie()
 
         # проскролили страницу вниз до последнего вопроса
-        main_page.scroll_page(MainPageLocators.DOWN_QUESTION_LOCATOR)
+        main_page.scroll()
 
         result = main_page.click_to_question_and_get_answer_text(
             MainPageLocators.QUESTION_LOCATOR,

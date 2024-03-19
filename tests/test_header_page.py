@@ -1,18 +1,18 @@
+import allure
 from data import Urls
-from locators.header_page_locators import HeaderPageLocators
-from locators.main_page_locators import MainPageLocators
 
+@allure.story('Тесты: переход на другие страницы')
 class TestHeaderPage:
+
+    @allure.title('Тест: переход на главную страницу через кнопку логотипа самоката')
     def test_logo_scooter(self, main_page, header_page):
-        main_page.click_on_element(MainPageLocators.COOKIE_BUTTON)
-        header_page.make_order()
-        header_page.click_on_element(HeaderPageLocators.LOGO_SCOOTER)
-        assert header_page.get_text_from_element(HeaderPageLocators.TEXT)
+        main_page.click_cookie()
+        header_page.go_to_logo_scooter()
+        assert header_page.get_text()
 
-    def test_logo_yandex(self, main_page, header_page):
-        main_page.click_on_element(MainPageLocators.COOKIE_BUTTON)
-        header_page.make_order()
-        header_page.click_on_element(HeaderPageLocators.LOGO_YANDEX)
-        header_page.tab_switch(HeaderPageLocators.SEARCH_INPUT)
+    @allure.title('Тест: переход на страницу Дзена через кнопку логотипа Яндекса')
+    def test_logo_yandex(self, header_page, main_page):
+        main_page.click_cookie()
+        header_page.go_to_yandex_logo()
+        header_page.switch_to_dzen()
         assert Urls.DZEN_URL in header_page.get_current_url()
-

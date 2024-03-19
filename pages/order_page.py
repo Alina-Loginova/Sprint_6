@@ -1,10 +1,12 @@
+import allure
+
 from locators.order_page_locators import OrderPageLocators
 from pages.base_page import BasePage
 import random
 
 class OrderPage(BasePage):
 
-    # заполнить поля формы заказа
+    @allure.step('Сделат заказ: заполнить данными поля заказа и подтвердить создание заказа')
     def set_form_to_order(self, rent, checkbox, comment):
 
         # заполнить форму заказа №1
@@ -18,7 +20,6 @@ class OrderPage(BasePage):
         self.click_on_element(OrderPageLocators.BUTTON_TO_NEXT)
 
         # заполнить форму заказа №2
-        # self.click_on_element(OrderPageLocators.DATE, '01.12.2024')
         self.set_text_to_element(OrderPageLocators.DATE, random.randint(1, 99999))
         self.click_on_element(OrderPageLocators.ACCEPT_DATE)
         self.select_element_from_menu(OrderPageLocators.RENT_TIME, rent)

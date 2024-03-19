@@ -3,7 +3,6 @@ from selenium import webdriver
 
 from data import Urls
 from pages.header_page import HeaderPage
-# , DzenPage)
 from pages.main_page import MainPage
 from pages.order_page import OrderPage
 

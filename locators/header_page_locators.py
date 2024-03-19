@@ -4,4 +4,4 @@ class HeaderPageLocators:
     LOGO_SCOOTER = By.CLASS_NAME, 'Header_LogoScooter__3lsAR'
     LOGO_YANDEX = By.CLASS_NAME, 'Header_LogoYandex__3TSOI'
     TEXT = By.CLASS_NAME, 'Home_Header__iJKdX'
-    SEARCH_INPUT = (By.XPATH, "/html/body/div[2]/div[2]/div[7]/div/main/section[2]/div/div[1]/div[1]/div/article/div[1]/div[2]/div[3]/div[1]/a/div")
+    BUTTON_FIND = By.XPATH, '//button[text()="Найти"]'
